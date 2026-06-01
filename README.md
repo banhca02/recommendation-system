@@ -2,7 +2,7 @@
 
 This project implements a personalized recommendation system based on a **Multi-Modal Two-Tower** architecture. The system combines a Transformer network (**SASRec**) to model sequential user behavior history and a **Fusion mechanism** to integrate diverse item features (Text, Images, Tabular data). The user-item matching process is optimized using **Contrastive Learning** via **InfoNCE Loss**.
 
-![Architecture Diagram](images/two_tower_model.png)
+<img width="832" height="491" alt="two_tower_model" src="https://github.com/user-attachments/assets/a10698ab-2efd-49c0-96c2-62ca1cb99d6c" />
 
 ---
 
