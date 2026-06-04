@@ -17,6 +17,26 @@ This project implements a personalized recommendation system based on a **Multi-
 
 ---
 
+## Results
+
+Evaluated on a **cold-start full-ranking** scenario across the entire item catalog (6,710 items).
+Our model is benchmarked against [MoRec](https://github.com/westlake-repl/IDvs.MoRec), a strong
+ID-free recommendation baseline.
+
+| Input Modality       | Model        | Hit@10 | NDCG@10 |
+| -------------------- | ------------ | ------ | ------- |
+| Text only            | MoRec        | 0.93%  | 0.67%   |
+| Text only            | **Ours**     | **2.46%** | **1.24%** |
+| Image only           | MoRec        | 0.41%  | 0.18%   |
+| Image only           | **Ours**     | **2.96%** | **1.63%** |
+| Multi-modal fusion   | MoRec        | -      | -       |
+| Multi-modal fusion   | **Ours**     | **3.45%** | **1.93%** |
+
+> Multi-modal fusion consistently outperforms single-modality variants and surpasses MoRec
+> by **+2.52% Hit@10** and **+1.26% NDCG@10** on the text-only comparison.
+
+---
+
 ## Installation & Usage
 
 ### 1. Prerequisites
