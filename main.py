@@ -105,7 +105,7 @@ def main():
         "--nhead", "4",
         "--batch_size", "64" 
     ]
-    run_command(cmd_test_user, "BƯỚC 7 - Inference tháp người dùng")
+    run_command(cmd_inference_user, "BƯỚC 7 - Inference tháp người dùng")
 
     print(f"\nTẤT CẢ ĐÃ XONG! Mọi kết quả, configs và mô hình được lưu tại: {args.output_dir}")
 
