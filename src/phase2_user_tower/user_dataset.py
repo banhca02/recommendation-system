@@ -32,7 +32,10 @@ class UserHistoryDataset(Dataset):
         self.item_emb_dim = next(iter(self.item_dict.values())).shape[0] if len(self.item_dict) > 0 else 256 
         self.zero_item_tensor = torch.zeros(self.item_emb_dim, dtype=torch.float)
         
-        print(f"Đang xử lý dữ liệu cho tập: {mode.upper()} (Max Len: {self.max_len})...")
+        if mode in ['train', 'val']:
+            print(f"Đang xử lý dữ liệu cho tập: {mode.upper()} (Max Len: {self.max_len})...")
+        else:
+            print(f"Đang xử lý dữ liệu để inference (Max Len: {self.max_len})...")    
         
         for _, row in user_df.iterrows():
             if self.mode == 'train':

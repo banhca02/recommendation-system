@@ -95,6 +95,18 @@ def main():
     ]
     run_command(cmd_test_user, "BƯỚC 6 - Đánh giá Mô hình trên Tập Test (Full Ranking)")
 
+    cmd_inference_user = [
+        sys.executable, "src/phase2_user_tower/inference.py",
+        "--data_dir", phase2_data_dir,
+        "--checkpoint_path", user_model_path,
+
+        "--max_seq_len", "50",
+        "--num_layers", "2",
+        "--nhead", "4",
+        "--batch_size", "64" 
+    ]
+    run_command(cmd_test_user, "BƯỚC 7 - Inference tháp người dùng")
+
     print(f"\nTẤT CẢ ĐÃ XONG! Mọi kết quả, configs và mô hình được lưu tại: {args.output_dir}")
 
 if __name__ == "__main__":
