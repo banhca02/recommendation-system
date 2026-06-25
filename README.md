@@ -45,7 +45,7 @@ Ensure you have **Python >= 3.8** installed. Clone this repository and install t
 
 ```bash
 git https://github.com/banhca02/recommendation-system.git
-cd cd recommendation-system
+cd recommendation-system
 pip install -r requirements.txt
 ```
 
