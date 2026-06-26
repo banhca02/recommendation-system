@@ -30,7 +30,7 @@ def extract_user_embeddings(args):
         item_dict_path=item_dict_path,
         max_seq_len=args.max_seq_len,
         pad_value=0,
-        mode='test' 
+        mode='inference' 
     )
     
     inference_loader = DataLoader(

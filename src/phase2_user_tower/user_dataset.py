@@ -57,7 +57,7 @@ class UserHistoryDataset(Dataset):
                         self.samples.append((
                             input_indices, input_reviews, target_item, user_explicit_negatives
                         ))
-            else:
+            elif self.mode in ['val', 'test']:
                 input_indices = row['input_item_indices_seq']
                 input_reviews = row['input_review_text_seq'] 
                 input_ratings = row['input_rating_seq']
@@ -74,6 +74,13 @@ class UserHistoryDataset(Dataset):
                     self.samples.append((
                         input_indices, input_reviews, target_item, user_explicit_negatives
                     ))
+            elif self.mode == 'inference':
+                input_indices = row['item_indices_seq']
+                input_reviews = row['review_text_seq'] 
+                input_ratings = row['rating_seq']
+                self.samples.append((
+                    input_indices, input_reviews, None, None
+                ))
                     
         if self.mode == 'train':
             print(f"Đã sinh ra {len(self.samples)} mẫu trượt cửa sổ. Đang xáo trộn...")
