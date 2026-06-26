@@ -14,9 +14,8 @@ def extract_user_embeddings(args):
 
     user_tower = UserTower(d_model=args.d_model, nhead=args.nhead, num_layers=args.num_layers).to(device)
 
-    checkpoint_path = os.path.join(args.checkpoint_path, 'user_tower.pth')
-    print(f"Đang tải checkpoint từ: {checkpoint_path}")
-    user_tower.load_state_dict(torch.load(checkpoint_path, map_location=device))
+    print(f"Đang tải checkpoint từ: {args.checkpoint_path}")
+    user_tower.load_state_dict(torch.load(args.checkpoint_path, map_location=device))
     user_tower.eval() 
 
     print("\n--- Creating Inference DataLoader (shuffle=False) ---")
