@@ -76,6 +76,7 @@ if __name__ == "__main__":
 
     parser.add_argument("--data_dir", type=str, required=True, help="Thư mục chứa user_all.pkl, item_embeddings.pt, ...")
     parser.add_argument("--checkpoint_path", type=str, required=True, help="Đường dẫn đến file model user_tower.pth")
+    parser.add_argument("--output_dir", type=str, required=True, help="Thư mục chứa user_embeddings.pt, có thể để chung với data_dir")
     parser.add_argument("--batch_size", type=int, default=128)
     parser.add_argument("--max_seq_len", type=int, default=50)
     parser.add_argument("--num_layers", type=int, default=2)

@@ -99,6 +99,7 @@ def main():
         sys.executable, "src/phase2_user_tower/inference.py",
         "--data_dir", phase2_data_dir,
         "--checkpoint_path", user_model_path,
+        "--output_dir", phase2_data_dir,
 
         "--max_seq_len", "50",
         "--num_layers", "2",
