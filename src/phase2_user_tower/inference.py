@@ -20,12 +20,12 @@ def extract_user_embeddings(args):
 
     print("\n--- Creating Inference DataLoader (shuffle=False) ---")
 
-    test_df = pd.read_pickle(os.path.join(args.data_dir, 'user_all.pkl'))
+    user_df = pd.read_pickle(os.path.join(args.data_dir, 'user_all.pkl'))
     review_dict_path = os.path.join(args.data_dir, 'precomputed_review_embs.pt')
     item_dict_path = os.path.join(args.data_dir, 'item_embeddings.pt')
 
     full_dataset = UserHistoryDataset(
-        user_df=test_df,
+        user_df=user_df,
         review_dict_path=review_dict_path,
         item_dict_path=item_dict_path,
         max_seq_len=args.max_seq_len,
@@ -62,7 +62,7 @@ def extract_user_embeddings(args):
     user_dict = {}
 
     for idx in tqdm(range(len(full_dataset)), desc="Packing"):
-        raw_user_id = str(full_dataset.df.iloc[idx]['user_id'])
+        raw_user_id = str(user_df.iloc[idx]['user_id'])
         user_dict[raw_user_id] = user_embeddings_all[idx]
 
     output_file = os.path.join(args.output_dir, 'user_embeddings.pt')
